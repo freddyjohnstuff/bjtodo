@@ -15,5 +15,6 @@ if(file_exists($file)) {
         }
     }
 } else {
-    throw new Exception('Config file not defined');
+    echo 'Config file not defined';
+    /*throw new Exception('Config file not defined');*/
 }
