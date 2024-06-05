@@ -52,7 +52,7 @@ class Controller
      * @return bool
      */
     public function render($path, $params = []) {
-
+        
         if(!empty($params)) {
             extract($params);
         }

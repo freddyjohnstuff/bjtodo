@@ -8,7 +8,6 @@ class Route
 {
     private static $controllerDefault = 'Main';
     private static $actionDefault = 'index';
-    private static $queryParams = [];
 
     /**
      * @return string
@@ -25,16 +24,6 @@ class Route
     {
         return self::$actionDefault;
     }
-
-    /**
-     * @param $default
-     * @return int
-     */
-    public static function getPage($default)
-    {
-        return self::$queryParams['page'] ?? $default;
-    }
-
 
     /**
      * @return void
@@ -56,15 +45,6 @@ class Route
         if ( !empty($routes[2]) )
         {
             self::$actionDefault = $routes[2];
-        }
-
-        $queryParams = strip_tags($_SERVER['QUERY_STRING']);
-        if(!empty($queryParams)) {
-            $params = explode('&', $queryParams);
-            foreach ($params as $piar) {
-                $paramspiarArr = explode('=', $piar);
-                self::$queryParams[stripslashes($paramspiarArr[0])] = $paramspiarArr[1];
-            }
         }
 
     }

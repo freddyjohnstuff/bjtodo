@@ -35,7 +35,7 @@ class Application
                 $controllerClassObj = new $controllerClass();
 
                 /*$controllerClassObj->setLayout($controller);*/
-                $viewTemplate = BASE_DIR . 'src/views/' . $controller . '/' . $action . '.php';
+                $viewTemplate = BASE_DIR . 'src/views/' . lcfirst($controller) . '/' . $action . '.php';
                 if(file_exists($viewTemplate)) {
                     $controllerClassObj->setViewPath($viewTemplate);
                 }

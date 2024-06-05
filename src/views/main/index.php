@@ -2,7 +2,7 @@
 global $_SESSION;
 $httpArr = [];
 
-$page = \components\application\Route::getPage(0);
+$page = \components\request\Request::getInstance()->get('page', 0);
 if($page) {
     $httpArr['page'] = $page;
 }
