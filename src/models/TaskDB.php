@@ -148,7 +148,7 @@ class TaskDB extends BaseDB
             $this->executeStatement($stmt);
 
         } catch (PDOException $e) {
-            throw new \HttpException($e->getMessage());
+            throw new \Exception($e->getMessage());
         }
     }
 

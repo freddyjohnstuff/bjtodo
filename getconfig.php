@@ -15,5 +15,5 @@ if(file_exists($file)) {
         }
     }
 } else {
-    throw new HttpException('Config file not defined');
+    throw new Exception('Config file not defined');
 }
