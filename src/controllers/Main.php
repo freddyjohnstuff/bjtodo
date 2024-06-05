@@ -2,7 +2,6 @@
 
 namespace controllers;
 
-use components\application\Route;
 use components\config\Configuration;
 use components\controller\Controller;
 use components\request\Request;
@@ -111,7 +110,8 @@ class Main extends Controller
             [
                 'id' => $id,
                 'form' => $post,
-                'message' => $message
+                'message' => $message,
+                'statuses' => Status::$data
             ]
         );
     }

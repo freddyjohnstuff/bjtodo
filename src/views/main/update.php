@@ -32,12 +32,8 @@
 
                     <div class="mb-3">
                         <label for="task" class="form-label">Status:</label>
-                        <select class="form-control">
-                            <?php foreach ( [
-                                0 => 'New',
-                                1 => 'Progress',
-                                2 => 'Done',
-                            ] as $status => $label):?>
+                        <select name="status" class="form-control">
+                            <?php foreach ($statuses  as $status => $label):?>
                             <option value="<?=$status?>" <?=(($form['status'] ?? 0) == $status) ? 'selected':''?>><?=$label?></option>
                             <?php endforeach;?>
                         </select>
