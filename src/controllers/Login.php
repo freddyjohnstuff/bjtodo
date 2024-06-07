@@ -2,7 +2,6 @@
 
 namespace controllers;
 
-use components\application\Route;
 use components\config\Configuration;
 use components\controller\Controller;
 use components\request\Request;
@@ -16,11 +15,11 @@ class Login extends Controller
         $message = '';
         $post = Request::getInstance()->post();
 
-        if(!empty($post)) {
+        if (!empty($post)) {
 
 
-            if(User::getInstance()->validate($post)) {
-                if(User::getInstance()->login($post)) {
+            if (User::getInstance()->validate($post)) {
+                if (User::getInstance()->login($post)) {
                     header("Location: /" . Configuration::getInstance()->get('urlpath') . "/main/index");
                 } else {
                     $message = 'Incorrect Login or Password';
@@ -39,9 +38,22 @@ class Login extends Controller
         );
     }
 
-    public function actionLogout(){
+    public function actionLogout()
+    {
         User::getInstance()->logout();
         header("Location: /" . Configuration::getInstance()->get('urlpath') . "/main/index");
     }
+
+    public function actionCheck()
+    {
+        $this->layout = 'empty';
+
+        $this->setContentType('json');
+        return $this->render(
+            $this->viewPath,
+            ['response' => json_encode(['check' => User::getInstance()->isLogedIn()])]
+        );
+    }
+
 
 }

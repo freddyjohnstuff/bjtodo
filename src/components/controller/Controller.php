@@ -45,6 +45,16 @@ class Controller
         $this->viewPath = $viewPath;
     }
 
+    public function setContentType($type = null) {
+
+        switch ($type) {
+            case 'json' :
+                header('Content-Type: application/json; charset=utf-8');
+                break;
+            default:
+                break;
+        }
+    }
 
     /**
      * @param $path
